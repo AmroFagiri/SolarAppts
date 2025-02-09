@@ -193,24 +193,33 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('solarForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+   <script>
+    document.getElementById('solarForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page reload
 
-            const formData = new FormData(this);
+        const form = this;
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true; // Disable button to prevent double submission
 
-            fetch('https://script.google.com/macros/s/AKfycbwnk5tCWtpRjTCOvQBw8EtFcYh2VrD93q5mcNNM3DgmnHXxWv8yH3L91rjj1AoDnyxIuw/exec', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert('Form submitted successfully!');
-                document.getElementById('solarForm').reset();
-            })
-            .catch(error => alert('Error submitting form: ' + error));
+        const formData = new FormData(form);
+
+        fetch('https://script.google.com/macros/s/AKfycbwnk5tCWtpRjTCOvQBw8EtFcYh2VrD93q5mcNNM3DgmnHXxWv8yH3L91rjj1AoDnyxIuw/exec', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert('Form submitted successfully!');
+            form.reset(); // Clear form fields
+            submitButton.disabled = false; // Re-enable button after successful submission
+        })
+        .catch(error => {
+            alert('Error submitting form: ' + error);
+            submitButton.disabled = false; // Re-enable button in case of error
         });
-    </script>
+    });
+</script>
+
 
 </body>
 </html>
