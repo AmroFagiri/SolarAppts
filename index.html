@@ -1,83 +1,216 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="styles.css">
-
-<html>
+<html lang="en">
 <head>
-    <title>Solar Template Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Consultation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .script-container {
+            flex: 1;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 3px solid #007bff;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .script-container p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .script-container {
+                border-left: none;
+                border-top: 3px solid #007bff;
+                margin-top: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>Solar Template Form</h2>
-    <form id="solarForm">
-        <label>Agent Name:</label>
-        <input type="text" name="agent_name" required><br>
-        <label>Name:</label>
-        <input type="text" name="name" required><br>
-        <label>Phone number:</label>
-        <input type="tel" name="phone_number" required><br>
-        <label>Email address:</label>
-        <input type="email" name="email" required><br>
-        <label>Address (confirmed?):</label>
-        <input type="text" name="address" required><br>
-        <label>Homeowner Confirmed?</label>
-        <select name="homeowner_confirmed">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br>
-        <label>Name of Utility Company:</label>
-        <input type="text" name="utility_company" required><br>
-        <label>Avg. Electric bill:</label>
-        <input type="text" name="electric_bill" required><br>
-        <label>Trees:</label>
-        <input type="text" name="trees"><br>
-        <label>Trimming required?</label>
-        <select name="trimming_required">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br>
-        <label>Roof Type:</label>
-        <input type="text" name="roof_type" required><br>
-        <label>Roof Age:</label>
-        <input type="text" name="roof_age" required><br>
-        <label>Credit Score:</label>
-        <input type="text" name="credit_score" required><br>
-        <label>Marital Status:</label>
-        <input type="text" name="marital_status"><br>
-        <label>Spouse Attendance:</label>
-        <select name="spouse_attendance">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br>
-        <label>Note:</label>
-        <textarea name="note"></textarea><br>
-        <label>Appointment Date:</label>
-        <input type="date" name="appointment_date" required><br>
-        <button type="submit">Submit</button>
-    </form>
+
+    <div class="container">
+        <!-- FORM SECTION -->
+        <div class="form-container">
+            <h2>Solar Appts Form</h2>
+            <form id="solarForm">
+                <label>Agent Name:</label>
+                <input type="text" name="agent_name" required>
+
+                <label>Name:</label>
+                <input type="text" name="name" required>
+
+                <label>Phone number:</label>
+                <input type="tel" name="phone_number" required>
+
+                <label>Email address:</label>
+                <input type="email" name="email">
+
+                <label>Address (confirmed?):</label>
+                <input type="text" name="address" required>
+
+                <label>Homeowner Confirmed?</label>
+                <select name="homeowner_confirmed">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label>Name of Utility Company:</label>
+                <input type="text" name="utility_company" required>
+
+                <label>Avg. Electric bill:</label>
+                <input type="text" name="electric_bill" required>
+
+                <label>Trees:</label>
+                <input type="text" name="trees">
+
+                <label>Trimming required?</label>
+                <select name="trimming_required">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label>Roof Type:</label>
+                <input type="text" name="roof_type" required>
+
+                <label>Roof Age:</label>
+                <input type="text" name="roof_age" required>
+
+                <label>Credit Score:</label>
+                <input type="text" name="credit_score" required>
+
+                <label>Marital Status:</label>
+                <input type="text" name="marital_status">
+
+                <label>Spouse Attendance:</label>
+                <select name="spouse_attendance">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label>Note:</label>
+                <textarea name="note"></textarea>
+
+                <label>Appointment Date:</label>
+                <input type="date" name="appointment_date" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- SCRIPT SECTION -->
+        <div class="script-container">
+            <h2>Solar Consultation Guide</h2>
+            <p><span class="highlight">Hi, This is [Your Name].</span> Your neighborhood qualifies for a new solar program that lets you switch to solar at zero cost and eliminate your electric bill.</p>
+
+            <p><span class="highlight">How It Works:</span> This program installs solar panels with no upfront expense. You could save on taxes and lower your monthly energy bill by switching to a lower-cost solar bill.</p>
+
+            <p><span class="highlight">Qualifying Questions:</span></p>
+            <ul>
+                <li>How much do you pay on average for electricity? Over $100? Wow, that’s high!</li>
+                <li>You are the homeowner of <span class="highlight">123 [Address]</span>, correct?</li>
+                <li>Are there any trees, leaks, or damages on your roof?</li>
+                <li>What type of roof do you have?</li>
+                <li>How old is your roof?</li>
+                <li>Since this is a state-funded program, we need to ensure you're in good standing. I don’t need an exact number, but would you say your credit score is above 650?</li>
+            </ul>
+
+            <p><span class="highlight">Next Steps:</span> Great! Based on this, you may qualify. Let’s go ahead and book an appointment.</p>
+
+            <p>We’ll schedule an in-home consultation where our solar advisor will review your energy usage, show you potential savings, and design the system for your home.</p>
+
+            <p><span class="highlight">Important:</span> It’s best if both you and your spouse can attend. Also, please have a copy of your recent electric bill handy for review.</p>
+
+            <p><span class="highlight">Wrap-Up:</span> Before we finish, do you have any questions? Let’s confirm your appointment details and email address.</p>
+
+            <p><span class="highlight">Thank you, and have a great day!</span></p>
+        </div>
+    </div>
+
     <script>
         document.getElementById('solarForm').addEventListener('submit', function(event) {
             event.preventDefault();
-        
+
             const formData = new FormData(this);
-            const params = new URLSearchParams();
-        
-            for (const pair of formData.entries()) {
-                params.append(pair[0], pair[1]);
-            }
-        
-            fetch('https://script.google.com/macros/s/AKfycbwnk5tCWtpRjTCOvQBw8EtFcYh2VrD93q5mcNNM3DgmnHXxWv8yH3L91rjj1AoDnyxIuw/exec', {
+
+            fetch('https://script.google.com/macros/s/YOUR_GOOGLE_APPS_SCRIPT_URL/exec', {
                 method: 'POST',
-                body: params
+                body: formData
             })
             .then(response => response.text())
             .then(data => {
                 alert('Form submitted successfully!');
-                document.getElementById('solarForm').reset(); // Reset form fields
-               
+                document.getElementById('solarForm').reset();
             })
             .catch(error => alert('Error submitting form: ' + error));
         });
-        
-        
     </script>
+
 </body>
 </html>
