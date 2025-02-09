@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Consultation Form</title>
+    <title>JUSI POWER TEAM - Solar Consultation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,6 +33,11 @@
             padding: 20px;
             background: #f9f9f9;
             border-left: 3px solid #007bff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
         }
 
         h2 {
@@ -80,6 +85,13 @@
             color: #007bff;
         }
 
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #ddd;
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -94,6 +106,8 @@
     </style>
 </head>
 <body>
+
+    <h1>JUSI POWER TEAM</h1>
 
     <div class="container">
         <!-- FORM SECTION -->
@@ -166,8 +180,8 @@
 
         <!-- SCRIPT SECTION -->
         <div class="script-container">
-            <h2>Solar Consultation Guide</h2>
-            <p><span class="highlight">Hi, This is [Your Name].</span> Your neighborhood qualifies for a new solar program that lets you switch to solar at zero cost and eliminate your electric bill.</p>
+            <h2>Solar Simple Script</h2>
+            <p><span class="highlight">Hi, This is [Your Name].</span>I'm with REA,(Renewable Energy Association) and I'm calling cuz Your neighborhood qualifies for a new solar program that lets you switch to solar at zero cost and eliminate your electric bill.</p>
 
             <p><span class="highlight">How It Works:</span> This program installs solar panels with no upfront expense. You could save on taxes and lower your monthly energy bill by switching to a lower-cost solar bill.</p>
 
@@ -178,48 +192,80 @@
                 <li>Are there any trees, leaks, or damages on your roof?</li>
                 <li>What type of roof do you have?</li>
                 <li>How old is your roof?</li>
-                <li>Since this is a state-funded program, we need to ensure you're in good standing. I don’t need an exact number, but would you say your credit score is above 650?</li>
+                <li>Since this is a state-funded program, we need to ensure you're in good standing. Would you say your credit score is above 650?</li>
             </ul>
-
-            <p><span class="highlight">Next Steps:</span> Great! Based on this, you may qualify. Let’s go ahead and book an appointment.</p>
-
             <p>We’ll schedule an in-home consultation where our solar advisor will review your energy usage, show you potential savings, and design the system for your home.</p>
-
+            <p><span class="highlight">Next Steps:</span> Let’s book an appointment to review your energy usage and potential savings.</p>
             <p><span class="highlight">Important:</span> It’s best if both you and your spouse can attend. Also, please have a copy of your recent electric bill handy for review.</p>
 
             <p><span class="highlight">Wrap-Up:</span> Before we finish, do you have any questions? Let’s confirm your appointment details and email address.</p>
-
+           
             <p><span class="highlight">Thank you, and have a great day!</span></p>
+
+            <h2>What to Expect in the Consultation</h2>
+            <button id="toggleInfo">Show Details</button>
+            <div id="consultationInfo" style="display: none; margin-top: 10px; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
+                <ul>
+                    <li>✅ He will take a look at your most recent electric bill.</li>
+                    <li>✅ Show you your potential savings report.</li>
+                    <li>✅ Examine your roof condition.</li>
+                    <li>✅ Review your electric usage.</li>
+                    <li>✅ Determine how many solar panels your house needs.</li>
+                </ul>
+            </div>
+            
+            <script>
+                document.getElementById("toggleInfo").addEventListener("click", function() {
+                    var infoDiv = document.getElementById("consultationInfo");
+                    if (infoDiv.style.display === "none") {
+                        infoDiv.style.display = "block";
+                        this.textContent = "Hide Details";
+                    } else {
+                        infoDiv.style.display = "none";
+                        this.textContent = "Show Details";
+                    }
+                });
+            
+            
+</script>
+
+
+            
+          <!-- RPS SECTION -->
+            <h2>What is the RPS?</h2>
+            <p></p></span>  the RPS program—<span class="highlight">Renewable Portfolio Standards</span>.</p>
+            <p>It's a government-funded program offering benefits like a <span class="highlight">30% ITC (Investment Tax Credit)</span> and a net metering system. This allows you to go solar with no money out of pocket while reducing your electric bill by <span class="highlight">30-50%</span>.</p>
         </div>
     </div>
 
-   <script>
-    document.getElementById('solarForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent page reload
+    <footer>Powered by Amro Fagiri</footer>
 
-        const form = this;
-        const submitButton = form.querySelector('button[type="submit"]');
-        submitButton.disabled = true; // Disable button to prevent double submission
+    <script>
+        document.getElementById('solarForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        const formData = new FormData(form);
+            const form = this;
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
 
-        fetch('https://script.google.com/macros/s/AKfycbwnk5tCWtpRjTCOvQBw8EtFcYh2VrD93q5mcNNM3DgmnHXxWv8yH3L91rjj1AoDnyxIuw/exec', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert('Form submitted successfully!');
-            form.reset(); // Clear form fields
-            submitButton.disabled = false; // Re-enable button after successful submission
-        })
-        .catch(error => {
-            alert('Error submitting form: ' + error);
-            submitButton.disabled = false; // Re-enable button in case of error
+            const formData = new FormData(form);
+
+            fetch('https://script.google.com/macros/s/AKfycbwnk5tCWtpRjTCOvQBw8EtFcYh2VrD93q5mcNNM3DgmnHXxWv8yH3L91rjj1AoDnyxIuw/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Form submitted successfully!');
+                form.reset();
+                submitButton.disabled = false;
+            })
+            .catch(error => {
+                alert('Error submitting form: ' + error);
+                submitButton.disabled = false;
+            });
         });
-    });
-</script>
-
+    </script>
 
 </body>
 </html>
