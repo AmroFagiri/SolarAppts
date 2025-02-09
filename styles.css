@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="styles.css">
+
+/* Apply styles to the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4 ;
+    margin: 5;
+    padding: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+ 
+}
+
+/* Center the form in a card layout */
+form {
+    background: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 75%;
+    width: 50%;
+}
+
+/* Form heading */
+h2 {
+    text-align: left;
+    color: #333;
+    margin-left: 9px;
+    text-shadow: #333;
+}
+
+/* Style all labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+/* Style input fields and select dropdowns */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style textareas */
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+/* Style submit button */
+button {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+/* Hover effect for button */
+button:hover {
+    background: #218838;
+}
+
+/* Make form responsive */
+@media (max-width: 500px) {
+    form {
+        max-width: 90%;
+    }
+}

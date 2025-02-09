@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="styles.css">
+
+<html>
+<head>
+    <title>Solar Template Form</title>
+</head>
+<body>
+    <h2>Solar Template Form</h2>
+    <form id="solarForm">
+        <label>Agent Name:</label>
+        <input type="text" name="agent_name" required><br>
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Phone number:</label>
+        <input type="tel" name="phone_number" required><br>
+        <label>Email address:</label>
+        <input type="email" name="email" required><br>
+        <label>Address (confirmed?):</label>
+        <input type="text" name="address" required><br>
+        <label>Homeowner Confirmed?</label>
+        <select name="homeowner_confirmed">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        <label>Name of Utility Company:</label>
+        <input type="text" name="utility_company" required><br>
+        <label>Avg. Electric bill:</label>
+        <input type="text" name="electric_bill" required><br>
+        <label>Trees:</label>
+        <input type="text" name="trees"><br>
+        <label>Trimming required?</label>
+        <select name="trimming_required">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        <label>Roof Type:</label>
+        <input type="text" name="roof_type" required><br>
+        <label>Roof Age:</label>
+        <input type="text" name="roof_age" required><br>
+        <label>Credit Score:</label>
+        <input type="text" name="credit_score" required><br>
+        <label>Marital Status:</label>
+        <input type="text" name="marital_status"><br>
+        <label>Spouse Attendance:</label>
+        <select name="spouse_attendance">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        <label>Note:</label>
+        <textarea name="note"></textarea><br>
+        <label>Appointment Date:</label>
+        <input type="date" name="appointment_date" required><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('solarForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const formData = new FormData(this);
+            const params = new URLSearchParams();
+        
+            for (const pair of formData.entries()) {
+                params.append(pair[0], pair[1]);
+            }
+        
+            fetch('https://script.google.com/macros/s/AKfycbwnk5tCWtpRjTCOvQBw8EtFcYh2VrD93q5mcNNM3DgmnHXxWv8yH3L91rjj1AoDnyxIuw/exec', {
+                method: 'POST',
+                body: params
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Form submitted successfully!');
+                window.open('https://docs.google.com/spreadsheets/d/1QawhbRMQnOgGLOwa7ERGq022Y6ULDUgskjtZ1PaBrcA/edit?gid=0#gid=0', '_blank');
+            })
+            .catch(error => alert('Error submitting form: ' + error));
+        });
+        
+        
+    </script>
+</body>
+</html>
