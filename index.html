@@ -71,6 +71,7 @@
             .then(response => response.text())
             .then(data => {
                 alert('Form submitted successfully!');
+                document.getElementById('solarForm').reset(); // Reset form fields
                
             })
             .catch(error => alert('Error submitting form: ' + error));
